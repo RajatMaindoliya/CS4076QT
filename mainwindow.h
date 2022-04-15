@@ -1,26 +1,38 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "ZorkUL.h"
+#include <QString>
 
-#include <QMainWindow>
-#include <QPushButton>
+#include <QDialog>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
+namespace Ui {
+class mainwindow;
+}
 
-class MainWindow : public QMainWindow
+class mainwindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit mainwindow(QWidget *parent = nullptr);
+    ~mainwindow();
 
 private slots:
-    void on_pushButton_clicked();
+
+    void on_Map_released();
+
+    void on_North_released();
+
+    void on_West_released();
+
+    void on_East_released();
+
+    void on_South_released();
 
 private:
-    Ui::MainWindow *ui;
-     QPushButton *push_button2;
+    Ui::mainwindow *ui;
+    ZorkUL *Zork;
+    QString toQString(string s);
 };
+
 #endif // MAINWINDOW_H
